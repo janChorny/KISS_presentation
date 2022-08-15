@@ -1,0 +1,348 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>KISS</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h1>Kiss</h1>
+				<h6>?</h6>
+				<img src="./examples/assets/kiss-2018.jpg" alt="KISS BAND">
+			</section>
+			<section>
+				<ol>
+					<li>"Keep it simple, stupid"</li>
+					<li>"Keep it simple, silly"</li>
+					<li>"Keep it short and simple"</li>
+					<li>"Keep it simple and straightforward"</li>
+					<li>"Keep it small and simple"</li>
+				</ol>
+			</section>
+			<section>
+				<img src="./examples/assets/Lockheed-logo_Winnie-Mae.png" alt="Lockheed-logo_Winnie-Mae" width="500">
+				<img src="./examples/assets/ClarenceLeonardKellyJohnson.jpg" alt="Clarence Leonard Kelly Johnson" width="500">
+			</section>
+			<section>
+				<h2>"fast, quiet, on time"</h2>
+				<ol style="font-size: 2rem;">
+					<li>...</li>
+					<li>...</li>
+					<li>...</li>
+					<li>"Keep it simple, stupid"</li>
+					<li>...</li>
+					<li>...</li>
+					<li>...</li>
+					<li>...</li>
+					<li>...</li>
+					<li>...</li>
+					<li>...</li>
+					<li>...</li>
+					<li>...</li>
+					<li>...</li>
+				</ol>
+			</section>
+			<section>
+				<div style="display: flex; align-items: flex-start;">
+					<div style="display: flex; flex-direction:column; justify-content: center; align-items: center;">
+						<img src="./examples/assets/Leonardo_self.jpg" alt="Leonardo_self" width="300" height="500">
+						<q>Simplicity is the ultimate sophistication</q>
+					</div>
+					<div style="display: flex; flex-direction:column; justify-content: center; align-items: center;">
+						<img src="./examples/assets/Einst.jpg" alt="Einstein_self" width="400" height="500">
+						<q>Make everything as simple as possible, but not simpler</q>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>KISS in ordinary life</h2>
+				<div style="display: flex; align-items: flex-start; justify-content: space-between;">
+					<img src="./examples/assets/simple_knife.jpg" alt="Hummer" width="400" height="400">
+					<img src="./examples/assets/KHABY_LAMEgf_005.webp" alt="Khabi" width="300" height="300"
+						style="align-self: center;">
+					<img src="./examples/assets/complicated_knife.jpg" alt="Multi-Hummer" width="400" height="400">
+				</div>
+			</section>
+			<section>
+				<section>
+					<h2>KISS in coding</h2>
+					<div style="display: flex; justify-content: space-between; font-size: 2rem;">
+						<pre style="margin-right: 50px;">
+		<h4>1st variant</h4>
+<code>
+	let distances = [
+{ from: 'Minsk', to: 'Vitebsk', distance: 270},
+{ from: 'Vitebsk', to: 'Homel', distance: 330},
+{ from: 'Homel', to: 'Brest', distance: 533}
+];
+
+let total; 
+for(let i = 0; i < distances.length; i++){ 
+	if(distances[i].distance > 300){ 
+	total +=distances[i].distance * 0.621371;
+  }
+}
+
+console.log(Math.round(total)) // 536
+</code>
+    </pre>
+						<pre>
+			<h4>2nd variant</h4>
+<code>
+let distances = [
+	{ from: 'Minsk', to: 'Vitebsk', distance: 270},
+	{ from: 'Vitebsk', to: 'Homel', distance: 330},
+	{ from: 'Homel', to: 'Brest', distance: 533}
+	];
+
+let total = distances.filter(item => 
+item.distance > 300) 
+  .map(item=> item.distance * 0.621371)
+  .reduce((prev, distance) => prev + distance, 0);
+
+
+
+console.log(Math.round(total)) // 536
+</code>
+		</pre>
+					</div>
+				</section>
+				<section>
+					<h2>Functions speed results</h2>
+					<img src="./examples/assets/speed-test-1.2_cr.png" alt="speed-test-1.2">
+				</section>
+			</section>
+			<section>
+				<h2>KISS in coding</h2>
+				<h4>Short-circuit Evaluation</h4>
+				<div style="display: flex; justify-content: space-between; align-items: start; font-size: 2rem;">
+					<pre style="margin-right: 50px;">
+							<h5>Before</h5>
+							<code>
+const variable;
+
+if (variable === null || variable === undefined || 
+variable === '') {
+console.log("VARIABLE NOT FOUND!")
+} else {
+console.log(variable)
+}
+							</code>
+						</pre>
+					<pre>
+							<h5>After</h5>
+							<code>
+const variable;
+
+console.log( variable || "VARIABLE NOT FOUND!" )
+							</code>
+						</pre>
+				</div>
+			</section>
+			<section>
+				<h2>KISS in coding</h2>
+				<h4>Arrow functions</h4>
+				<div style="display: flex; justify-content: space-between; align-items: start; font-size: 2rem;">
+					<pre style="margin-right: 50px;">
+							<h5>Before</h5>
+							<code>
+function sayHello(name) {
+console.log('Hello', name)
+}
+							</code>
+						</pre>
+					<pre>
+							<h5>After</h5>
+							<code>
+const sayHello = name => console.log("Hello", name)
+							</code>
+						</pre>
+				</div>
+				<div>
+					<h4><span style="color: red;">note!</span> Arrow Functions:</h4>
+					<ol>
+						<li>Don't have “this”.</li>
+						<li>Do Not have “arguments”.</li>
+						<li>Cannot be called with “new”.</li>
+						<li>Also don't have “super”.</li>
+					</ol>
+				</div>
+			</section>
+			<section>
+				<h2>KISS in coding</h2>
+				<h4>Array.forEach() method</h4>
+				<div style="display: flex; justify-content: space-between; align-items: start; font-size: 2rem;">
+					<pre style="margin-right: 50px;">
+							<h5>Before</h5>
+							<code>
+const list = [2, 5, 7, 2, 6, 2, 3, 5];
+for (let i = 0; i < list.length; i++) { 
+	console.log(list[i]) 
+}
+							</code>
+						</pre>
+					<pre>
+							<h5>After</h5>
+							<code>
+const list = [2, 5, 7, 2, 6, 2, 3, 5];
+list.forEach(number => console.log(number))
+							</code>
+						</pre>
+				</div>
+			</section>
+			<section>
+				<h2>KISS in coding</h2>
+				<h4>Default Parameters</h4>
+				<div style="display: flex; justify-content: space-between; align-items: start; font-size: 2rem;">
+					<pre style="margin-right: 50px;">
+							<h5>Before</h5>
+							<code>
+function volume(l, w, h) {
+if (w === undefined)
+w = 1;
+if (h === undefined)
+h = 1;
+return l * w * h;
+}
+							</code>
+						</pre>
+					<pre>
+							<h5>After</h5>
+							<code>
+const volume = ( l, w = 1, h = 1) => l * w * h;
+							</code>
+						</pre>
+				</div>
+			</section>
+			<section>
+				<h2>KISS in coding</h2>
+				<h4>Destructuring</h4>
+				<div style="display: flex; justify-content: space-between; align-items: start; font-size: 2rem;">
+					<pre style="margin-right: 50px;">
+							<h5>Before</h5>
+							<code>
+const person = {
+first: 'Jan',
+last: 'Chorny',
+country: 'Belarus',
+city: 'Vitebsk',
+telegram: '@JanChorny'
+}
+const first = person.first
+const last = person.last
+...
+							</code>
+						</pre>
+					<pre>
+							<h5>After</h5>
+							<code>
+let { first, last } = person
+console.log(`${first} ${last}`)// Jan Chorny
+let { first: name, last: surname} = person
+console.log(name, surname) //Jan Chorny
+							</code>
+						</pre>
+				</div>
+			</section>
+			<section>
+				<h2>KISS in coding</h2>
+				<h4>Spread Operator</h4>
+				<div style="display: flex; justify-content: space-between; align-items: start; font-size: 2rem;">
+					<pre style="margin-right: 50px;">
+							<h5>Before</h5>
+							<code>
+const odd = [1, 2, 3]
+const nums = [4, 5, 6].concat(odd)
+							</code>
+						</pre>
+					<pre>
+							<h5>After</h5>
+							<code>
+const nums = [4, 5, 6, ...odd]
+							</code>
+						</pre>
+				</div>
+			</section>
+			<section>
+				<h2>KISS in coding</h2>
+				<h4>Importing modules</h4>
+				<div style="display: flex; justify-content: space-between; align-items: start; font-size: 2rem;">
+					<pre style="margin-right: 50px;">
+							<h5>Before</h5>
+							<code>
+import functions from 'functions'
+							</code>
+						</pre>
+					<pre>
+							<h5>After</h5>
+							<code>
+import {multiply, run, stop} from functions
+							</code>
+						</pre>
+				</div>
+			</section>
+			<section>
+				<h2>KISS in coding</h2>
+				<h4>Using async/await instead of promises</h4>
+				<div style="display: flex; justify-content: space-between; align-items: start; font-size: 2rem;">
+					<pre style="margin-right: 50px;">
+							<h5>Before</h5>
+							<code>
+function myPromise() {
+	return new Promise(resolve => {
+		setTimeout(() => resolve('done'), 3000);
+	})
+}
+
+myPromise().then(x =>console.log(x))
+							</code>
+						</pre>
+					<pre>
+							<h5>After</h5>
+							<code>
+async function getResult() {
+console.log(await myPromise())
+}
+
+
+
+getResult()
+							</code>
+						</pre>
+				</div>
+			</section>
+			<section>Thank's for your attention!</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
